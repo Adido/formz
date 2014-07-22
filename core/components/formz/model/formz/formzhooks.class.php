@@ -105,7 +105,8 @@ class formzHooks {
                 $newData['message'] .= $this->formArray[$field]['label'] . ' ' . $value . '<br>';
                 $newData[$this->formArray[$field]['id']] = $value;
             }
-
+            
+            $emailToAddresses = explode(',', $this->config->emailTo);
             $message = $this->fmz->getChunk($this->config->emailTpl, $newData);
 
             $this->modx->getService('mail', 'mail.modPHPMailer');
@@ -113,7 +114,9 @@ class formzHooks {
             $this->modx->mail->set(modMail::MAIL_FROM, $this->config->emailFrom);
             $this->modx->mail->set(modMail::MAIL_FROM_NAME, $this->config->senderName);
             $this->modx->mail->set(modMail::MAIL_SUBJECT, $this->config->subject);
-            $this->modx->mail->address('to', $this->config->emailTo);
+            foreach($emailToAddresses as $address) {
+              $this->modx->mail->address('to', trim($address));
+            }
             $this->modx->mail->address('reply-to', $this->config->emailFrom);
             $this->modx->mail->setHTML(true);
             if (!$this->modx->mail->send()) {
