@@ -8,6 +8,8 @@ class FormzFieldCreateProcessor extends modObjectCreateProcessor {
 
     /* Used to load the correct language error message */
     public $objectType = 'formz.field';
+    
+    public $beforeSaveEvent = 'OnFormzFormsFieldsBeforeSave';
 
     public function beforeSave() {
     	$formId = $this->getProperty('form_id');

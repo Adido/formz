@@ -8,6 +8,8 @@ class FormzRemoveProcessor extends modObjectRemoveProcessor {
 
     /* Used to load the correct language error message */
     public $objectType = 'formz.form';
+    
+    public $beforeRemoveEvent = 'OnFormzFormsBeforeRemove';
 }
 
 return 'FormzRemoveProcessor';

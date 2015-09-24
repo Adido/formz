@@ -8,7 +8,9 @@ class FormzUpdateProcessor extends modObjectUpdateProcessor {
 
     /* Used to load the correct language error message */
     public $objectType = 'formz.form';
-
+    
+    public $beforeSaveEvent = 'OnFormzFormsBeforeSave';
+    
     public function beforeSave() {
         // Setting creator and time created
         $this->object->set('editedby', $this->modx->user->get('id'));
