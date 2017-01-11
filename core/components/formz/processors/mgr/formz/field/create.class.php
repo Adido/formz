@@ -8,10 +8,16 @@ class FormzFieldCreateProcessor extends modObjectCreateProcessor {
 
     /* Used to load the correct language error message */
     public $objectType = 'formz.field';
+    
+    public $beforeSaveEvent = 'OnFormzFormsFieldsBeforeSave';
+
+    /* Set the default validation type to false for no validation on field type */
+    private $validationType = false;
 
     public function beforeSave() {
     	$formId = $this->getProperty('form_id');
-    	$label = $this->getProperty('label');
+        $label = $this->getProperty('label');
+        $helpText = $this->getProperty('help_text');
         $type = $this->getProperty('type');
         $default = $this->getProperty('default');
 
@@ -38,6 +44,9 @@ class FormzFieldCreateProcessor extends modObjectCreateProcessor {
             'label' => $label
         );
 
+        if (!empty($helpText))
+            $settings['help_text'] = $helpText;
+
         if (!empty($default))
             $settings['default'] = $default;
 
@@ -46,7 +55,7 @@ class FormzFieldCreateProcessor extends modObjectCreateProcessor {
 
         $this->object->set('settings', $this->modx->toJSON($settings));
 
-    	return parent::beforeSave();
+        return parent::beforeSave();
     }
 
     public function afterSave() {
@@ -54,7 +63,7 @@ class FormzFieldCreateProcessor extends modObjectCreateProcessor {
         if ($this->validationType) {
             $this->saveValidation();
         }
-        parent::afterSave();
+        return parent::afterSave();
     }
 
     private function saveValidation() {
@@ -64,7 +73,6 @@ class FormzFieldCreateProcessor extends modObjectCreateProcessor {
         if ($validation) {
             $msg = $this->getProperty('val_error_message');
             $fieldValidation = $this->modx->newObject('fmzFormsValidation');
-
             $fieldValidation->fromArray(array(
                 'field_id' => $fieldId,
                 'type' => $validation,

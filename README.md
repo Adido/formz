@@ -29,4 +29,4 @@ You can now start to create Forms by going to the components menu __Formz Builde
 ## Feedback
 Any comments or issues please raise that using the issues system.
 
-[formzdocs]: http://silentworks.github.io/formz/
+[formzdocs]: http://jako.github.io/formz/

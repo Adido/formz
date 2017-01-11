@@ -4,7 +4,7 @@ Formz.panel.Home = function(config) {
         cls: 'container'
         ,defaults: { collapsible: false ,autoHeight: true }
         ,items: [{
-            html: '<h2>'+_('formz')+'</h2>'
+            html: '<h2>'+_('formz.menu')+'</h2>'
             ,border: false
             ,cls: 'modx-page-header'
         },MODx.getPageStructure([{

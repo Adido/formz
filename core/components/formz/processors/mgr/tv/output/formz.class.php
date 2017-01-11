@@ -11,8 +11,8 @@ class FormzOutputRender extends modTemplateVarOutputRender {
                 $options[$key] = $val;
             }
         }
-        $mainOptions = array_merge(array('id' => $value), $options);
-		return $this->modx->runSnippet('fmzForms', array_merge($mainOptions, $this->tv->_properties));
+        $mainOptions = array_merge(array('id' => $value), $options, (is_array($this->tv->_properties)) ? $this->tv->_properties : array());
+	    return $this->modx->runSnippet('fmzForms', $mainOptions);
     }
 }
 return 'FormzOutputRender';

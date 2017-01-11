@@ -25,11 +25,11 @@ Formz.grid.Forms = function(config) {
             header: _('formz.form.submissions')
             ,dataIndex: 'submissions'
             ,align: 'center'
-            ,width: 30
+            ,width: 45
         }, {
             header: _('formz.form.method')
             ,dataIndex: 'method'
-            ,width: 30
+            ,width: 45
         }, {
             header: '&#160;'
             ,renderer: function (v, md, rec) {
@@ -40,9 +40,10 @@ Formz.grid.Forms = function(config) {
                 if (model.has_submission) {
                     btns = Formz.grid.btnRenderer({
                         items: [{
-                            id: 'update-' + rec.id
+                            id: 'submission-' + rec.id
                             ,fieldLabel: _(submStr)
-                            ,className: 'submission'
+                            ,icon: 'inbox'
+                            ,action: 'submission'
                         }]
                     });
                 }
@@ -50,18 +51,21 @@ Formz.grid.Forms = function(config) {
                     items: [{
                         id: 'update-' + rec.id
                         ,fieldLabel: _('formz.field.update')
-                        ,className: 'update'
+                        ,icon: 'pencil-square-o'
+                        ,action: 'update'
                     }]
                 }) +
                 Formz.grid.btnRenderer({
                     items: [{
                         id: 'remove-' + rec.id
                         ,fieldLabel: _('formz.field.remove')
-                        ,className: 'remove'
+                        ,icon: 'trash-o'
+                        ,action: 'remove'
                     }]
                 });
                 return btns;
             }
+            ,width: 30
         }]
     });
     Formz.grid.Forms.superclass.constructor.call(this, config);
@@ -130,9 +134,9 @@ Ext.extend(Formz.grid.Forms, MODx.grid.Grid, {
 
     ,onClick: function(e){
         var t = e.getTarget();
-        var elm = t.className.split(' ')[2];
-        if(elm == 'controlBtn') {
-            var action = t.className.split(' ')[3];
+        var elm = t.className.split(' ')[0];
+        if (elm == 'action_icon') {
+            var action = t.getAttribute('data-action');
             var record = this.getSelectionModel().getSelected();
             this.menu.record = record.data;
             switch (action) {

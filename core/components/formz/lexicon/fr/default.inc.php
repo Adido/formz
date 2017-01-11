@@ -8,7 +8,7 @@
  * @package formz
  * @subpackage lexicon
  */
-$_lang['formz'] = 'Formz Builder';
+$_lang['formz.menu'] = 'Formz Builder';
 $_lang['formz.menu_desc'] = 'Gérez vos formulaire à utiliser sur votre site.';
 $_lang['formz.intro_msg'] = 'Gérez vos formulaires.';
 $_lang['formz.form'] = 'Formulaires';
@@ -51,6 +51,7 @@ $_lang['formz.form.action_button_desc'] = 'Le texte affiché sur le bouton d\'en
 
 // Fields
 $_lang['formz.field.name'] = 'Intitulé (label)';
+$_lang['formz.field.help_text'] = 'Texte Complémentaire';
 $_lang['formz.field.type'] = 'Type';
 $_lang['formz.field.values'] = 'Valeurs';
 $_lang['formz.field.default'] = 'Valeur par défaut';

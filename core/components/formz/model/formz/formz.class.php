@@ -105,6 +105,7 @@ class Formz {
      */
     public function dump() {
         $args = func_get_args();
-        die(var_dump($args));
+        var_dump($args);
+        exit();
     }
 }

@@ -28,16 +28,18 @@ Formz.grid.Data = function(config) {
             ,renderer: function (v, md, rec) {
                 return Formz.grid.btnRenderer({
                     items: [{
-                        id: 'update-' + rec.id
+                        id: 'view-' + rec.id
                         ,fieldLabel: _('formz.submissions.view')
-                        ,className: 'view'
+                        ,icon: 'fa-eye'
+                        ,action: 'view'
                     }]
                 }) +
                 Formz.grid.btnRenderer({
                     items: [{
                         id: 'remove-' + rec.id
                         ,fieldLabel: _('formz.field.remove')
-                        ,className: 'remove'
+                        ,icon: 'trash-o'
+                        ,action: 'remove'
                     }]
                 });
             }
@@ -98,9 +100,9 @@ Ext.extend(Formz.grid.Data, MODx.grid.Grid, {
 
     ,onClick: function(e){
         var t = e.getTarget();
-        var elm = t.className.split(' ')[2];
-        if(elm == 'controlBtn') {
-            var action = t.className.split(' ')[3];
+        var elm = t.className.split(' ')[0];
+        if (elm == 'action_icon') {
+            var action = t.getAttribute('data-action');
             var record = this.getSelectionModel().getSelected();
             this.menu.record = record.data;
             switch (action) {

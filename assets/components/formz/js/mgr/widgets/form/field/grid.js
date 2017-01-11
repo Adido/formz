@@ -12,6 +12,7 @@ Formz.grid.Fields = function(config) {
             'id',
             'type',
             'label',
+            'help_text',
             'required',
             'default',
             'values',
@@ -63,14 +64,16 @@ Formz.grid.Fields = function(config) {
                     items: [{
                         id: 'update-' + rec.id
                         ,fieldLabel: _('formz.field.update')
-                        ,className: 'update'
+                        ,icon: 'pencil-square-o'
+                        ,action: 'update'
                     }]
                 }) +
                 Formz.grid.btnRenderer({
                     items: [{
                         id: 'remove-' + rec.id
                         ,fieldLabel: _('formz.field.remove')
-                        ,className: 'remove'
+                        ,icon: 'trash-o'
+                        ,action: 'remove'
                     }]
                 });
             }
@@ -132,9 +135,9 @@ Ext.extend(Formz.grid.Fields, MODx.grid.Grid, {
     }
     ,onClick: function(e){
         var t = e.getTarget();
-        var elm = t.className.split(' ')[2];
-        if(elm == 'controlBtn') {
-            var action = t.className.split(' ')[3];
+        var elm = t.className.split(' ')[0];
+        if (elm == 'action_icon') {
+            var action = t.getAttribute('data-action');
             var record = this.getSelectionModel().getSelected();
             this.menu.record = record.data;
             switch (action) {
@@ -214,18 +217,17 @@ Formz.window.UpdateField = function (config) {
             ,scope: this
             ,handler: this.submit
         }]
+        ,autoHeight: true
 		,fields: [{
             xtype: 'modx-tabs',
             autoHeight: true,
             deferredRender: false,
             forceLayout: true,
-            width: '98%',
-            bodyStyle: 'padding: 10px 10px 10px 10px;',
             border: true,
             defaults: {
                 border: false,
                 autoHeight: true,
-                bodyStyle: 'padding: 5px 8px 5px 5px;',
+                bodyStyle: 'padding: 5px;',
                 layout: 'form',
                 deferredRender: false,
                 forceLayout: true
@@ -237,11 +239,16 @@ Formz.window.UpdateField = function (config) {
 					xtype: 'hidden'
 					,name: 'id'
 				}, {
-					xtype: 'textfield'
-					,fieldLabel: _('formz.field.name')
-					,name: 'label'
-					,anchor: '100%'
-				}, {
+                    xtype: 'textfield'
+                    ,fieldLabel: _('formz.field.name')
+                    ,name: 'label'
+                    ,anchor: '100%'
+                }, {
+                    xtype: 'textarea'
+                    ,fieldLabel: _('formz.field.help_text')
+                    ,name: 'help_text'
+                    ,anchor: '100%'
+                }, {
 					xtype: 'formz-combo-types'
                     ,id: 'formz-field-types-' + config.id
 					,fieldLabel: _('formz.field.type')

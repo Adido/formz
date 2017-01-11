@@ -1,54 +1,55 @@
-Changelog for Formz.
+Changelog for Formz
+===================
 
-Formz 1.1.1
-======================
-- Updated email hook for multiple TO addresses
+- 1.3.0
+    - Add emailCC, emailCCName, emailBCC, emailBCCName to fmzForm_database_email hook
 
-Formz 1.1.0
-======================
-- [Issue: #3] Now supporting MODx 2.3
-- [Issue: #2] Added dependencies as sub packages
-- [PR: #1] Added German translation
-- Added index on senton column allow for quicker exports
-- Removed sender name
+- 1.2.0
+    - Added fieldTypeTpl parameter
+    - Added fieldWrapTpl parameter
+    - Added Form Field Type Template to the output options of a Formz TV
+    - Added Form Field Wrapper Template to the output options of a Formz TV
+    - Added FormIt Hooks Prefix to the output options of a Formz TV
+    - Added Help Text field in the field configuration form window
+    - Added Dutch translation
+    - Enabled plugin events in the processor classes
+    - Added emailReplyTo property to hooks class
+    - Added Mandrill properties to hooks class
 
-Formz 1.0.0 rc2
-======================
-- UI Enhancements added in
-- [#18] fiar
-- [#27] Adjusting the email
-- [#28] Specify redirect page
-- [#30] Export Submissions
-- [#35] Submission export limited to 20 rows
+- 1.1.1
+    - Updated email hook for multiple TO addresses
+- 1.1.0
+    - [Issue: #3] Now supporting MODx 2.3
+    - [Issue: #2] Added dependencies as sub packages
+    - [PR: #1] Added German translation
+    - Added index on senton column allow for quicker exports
+    - Removed sender name
 
-Formz 1.0.0 rc1
-======================
-- [#23] Multiple Forms on 1 page - How To (thanks to Grey Sky Media for fix)
-- [#25] Required Bug
-
-Formz 1.0.0 Beta3
-======================
-- [#14] Default upon Form creation
-- [#13] Passing over field tags to emailTpl
-- [#10] TV to have options to set emailTpl, emailFrom, emailTo, formTpl, fieldTpl etc
-- [#9] Bug when a user has multiple form, data was not persistent
-
-Formz 1.0.0 Beta2
-======================
-- Fixed issue with installer throwing error for plugin installation
-
-Formz 1.0.0 Beta1
-======================
-- Fixed single instance of view submission window
-- Fixed field name to be based on field naming rather than label
-- Fix manager grid scaling with browser
-- Snippets and Plugins are now referenced as static files
-- Removed modResource call in snippet to use clean function
-- Added in Translations for French and Swedish (thanks to Romain and Joakim)
-- Added in Export to CSV the results
-- Added email and number validation type
-
-
-Formz 1.0.0 Alpha1/2/3
-======================
-- Initial release.
+- 1.0.0 rc2
+    - UI Enhancements added in
+    - [#18] fiar
+    - [#27] Adjusting the email
+    - [#28] Specify redirect page
+    - [#30] Export Submissions
+    - [#35] Submission export limited to 20 rows
+- 1.0.0 rc1
+    - [#23] Multiple Forms on 1 page - How To (thanks to Grey Sky Media for fix)
+    - [#25] Required Bug
+- 1.0.0 Beta3
+    - [#14] Default upon Form creation
+    - [#13] Passing over field tags to emailTpl
+    - [#10] TV to have options to set emailTpl, emailFrom, emailTo, formTpl, fieldTpl etc
+    - [#9] Bug when a user has multiple form, data was not persistent
+- 1.0.0 Beta2
+    - Fixed issue with installer throwing error for plugin installation
+- 1.0.0 Beta1
+    - Fixed single instance of view submission window
+    - Fixed field name to be based on field naming rather than label
+    - Fix manager grid scaling with browser
+    - Snippets and Plugins are now referenced as static files
+    - Removed modResource call in snippet to use clean function
+    - Added in Translations for French and Swedish (thanks to Romain and Joakim)
+    - Added in Export to CSV the results
+    - Added email and number validation type
+- 1.0.0 Alpha1/2/3
+    - Initial release.

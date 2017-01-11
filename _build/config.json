@@ -1,0 +1,127 @@
+{
+  "name": "Formz",
+  "lowCaseName": "formz",
+  "description": "Get forms up and running on your website in an instant.",
+  "author": "Andrew Smith",
+  "version": "1.3.0",
+  "package": {
+    "actions": [
+      {
+        "id": 1,
+        "controller": "index",
+        "hasLayout": 1,
+        "langTopics": "formz:default",
+        "assets": ""
+      }
+    ],
+    "menus": [
+      {
+        "text": "formz.menu",
+        "description": "formz.menu_desc",
+        "action": 1,
+        "parent": "components"
+      }
+    ],
+    "elements": {
+      "chunks": [
+        {
+          "name": "emailTpl",
+          "description": "Email Template Layout",
+          "file": "emailtpl.chunk.tpl"
+        },
+        {
+          "name": "fieldTpl",
+          "description": "Field Template Layout",
+          "file": "fieldtpl.chunk.tpl"
+        },
+        {
+          "name": "formTpl",
+          "description": "Form Template Layout",
+          "file": "formtpl.chunk.tpl"
+        }
+      ],
+      "snippets": [
+        {
+          "name": "fmzForms",
+          "description": "Formz helper snippet that generates the form.",
+          "file": "fmzforms.snippet.php",
+          "properties": [
+            {
+              "name": "tpl",
+              "description": "prop_formz.tpl",
+              "value": "formTpl"
+            },
+            {
+              "name": "id",
+              "description": "prop_formz.id",
+              "value": ""
+            },
+            {
+              "name": "fieldTpl",
+              "description": "prop_formz.field_tpl",
+              "value": "fieldTpl"
+            },
+            {
+              "name": "fieldTypesTpl",
+              "description": "prop_formz.field_type_tpl",
+              "value": ""
+            },
+            {
+              "name": "fieldWrapTpl",
+              "description": "prop_formz.field_wrap_tpl",
+              "value": ""
+            }
+
+          ]
+        },
+        {
+          "name": "fmzForm_database",
+          "description": "Formz hook to save form to database.",
+          "file": "fmzform_database.snippet.php"
+        },
+        {
+          "name": "fmzForm_database_email",
+          "description": "Formz hook to save form to database and email to recipients address.",
+          "file": "fmzform_database_email.snippet.php"
+        }
+      ],
+      "plugins": [
+        {
+          "name": "FormzTv",
+          "description": "Formz runtime hooks - registers custom TV input & output types.",
+          "file": "formztv.plugin.php",
+          "events": [
+            "OnManagerPageBeforeRender",
+            "OnTVInputRenderList",
+            "OnTVOutputRenderList",
+            "OnTVOutputRenderPropertiesList"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": [
+    {
+      "name": "formit",
+      "version": ">=2.2.0"
+    },
+    {
+      "name": "formitfastpack",
+      "version": ">=1.1.0"
+    }
+  ],
+  "database": {
+    "tables": [
+      "fmzForms",
+      "fmzFormsFields",
+      "fmzFormsValidation",
+      "fmzFormsData",
+      "fmzFormsDataFields"
+    ]
+  },
+  "build": {
+    "readme": "docs/readme.txt",
+    "license": "docs/license.txt",
+    "changelog": "docs/changelog.txt"
+  }
+}

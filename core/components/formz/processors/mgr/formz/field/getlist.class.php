@@ -35,6 +35,9 @@ class FormzFieldGetListProcessor extends modObjectGetListProcessor {
 
             $lists[$currentIndex]['label'] = $fieldSettings->label;
 
+            if (!empty($fieldSettings->help_text))
+                $lists[$currentIndex]['help_text'] = $fieldSettings->help_text;
+
             if (!empty($fieldSettings->default))
                 $lists[$currentIndex]['default'] = $fieldSettings->default;
 

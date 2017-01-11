@@ -21,6 +21,12 @@ class FormzGetListProcessor extends modObjectGetListProcessor {
 	    		'name:LIKE' => '%' . $query . '%',
 	    	));
     	}
+
+        $this->modx->invokeEvent('OnFormzFormsPrepareQueryBeforeCount',array(
+            'query' => $query,
+            'c' => &$c,
+        ));
+       
     	return $c;
     }
 

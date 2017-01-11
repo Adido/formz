@@ -14,7 +14,7 @@ Formz.grid.btnRenderer = function (list) {
     var btnTemplate = new Ext.XTemplate('<tpl for=".">' +
         '<tpl if="items">'+
         '<tpl for="items">' +
-        '<div id="{id}" class="x-btn-text button controlBtn {className}" style="{buttonStyle}">{fieldLabel}</div>' +
+        '<div id="{id}" class="action_button"><i class="action_icon icon {className} icon-{icon}" data-action="{action}" title="{fieldLabel}"></i></div>' +
         '</tpl>' +
         '</tpl>' +
         '</tpl>', {

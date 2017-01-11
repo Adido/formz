@@ -8,7 +8,7 @@
  * @package formz
  * @subpackage lexicon
  */
-$_lang['formz'] = 'Formz Builder';
+$_lang['formz.menu'] = 'Formz Builder';
 $_lang['formz.menu_desc'] = 'Hantera formulär för användning på webbsidan.';
 $_lang['formz.intro_msg'] = 'Hantera dina formulär.';
 $_lang['formz.form'] = 'Formulär';
@@ -51,6 +51,7 @@ $_lang['formz.form.action_button_desc'] = 'Text som formulärets submit knapp sk
 
 // Fields
 $_lang['formz.field.name'] = 'Etikett';
+$_lang['formz.field.help_text'] = 'Ytterligare Text';
 $_lang['formz.field.type'] = 'Typ';
 $_lang['formz.field.values'] = 'Värden';
 $_lang['formz.field.default'] = 'Standardvärde';

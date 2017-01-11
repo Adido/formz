@@ -7,6 +7,7 @@ Formz.panel.NewForm = function (config) {
 
 	tbs.push({
 		title: _('formz.form.general')
+		,id: 'formz_form_general'
 		,defaults: {
 			border: false
 			,autoHeight: true
@@ -21,7 +22,6 @@ Formz.panel.NewForm = function (config) {
 			layout: 'form'
 			,cls: 'main-wrapper'
 			,border: false
-			,anchor: '98%'
 			,defaults: {
 				layout: 'form'
 			}
@@ -43,7 +43,7 @@ Formz.panel.NewForm = function (config) {
 							var recipientField = Ext.getCmp('formz-form-recipient'),
 								rec = this.record.method;
 
-							if(rec === 'database_email') {
+							if (rec === 'database_email') {
 								recipientField.show();
 							}
 						}
@@ -68,8 +68,8 @@ Formz.panel.NewForm = function (config) {
 				,anchor: '60%'
 			}, {
 				title: _('formz.form.success')
+				,id: 'formz_form_success'
 				,layout: 'form'
-				,bodyCssClass: 'main-wrapper'
 				,autoHeight: true
 				,collapsible: true
 				,hideMode: 'offsets'
@@ -83,11 +83,11 @@ Formz.panel.NewForm = function (config) {
 					,anchor: '100%'
 					,allowBlank: false
 				}]
-				,style: 'margin-top: 10px'
 			}]
 		}]
 	}, {
 		title: _('formz.form.extra')
+		,id: 'formz_form_extra'
 		,defaults: {
 			border: false
 			,autoHeight: true
@@ -194,7 +194,7 @@ Formz.panel.NewForm = function (config) {
 		,border: false
 		,cls: 'container form-with-labels'
 		,items: [{
-			html: '<h2>' + _('formz') + '</h2>'
+			html: '<h2>' + _('formz.menu') + '</h2>'
             ,cls: 'modx-page-header'
 			,border: false
 		}, MODx.getPageStructure(tbs)]

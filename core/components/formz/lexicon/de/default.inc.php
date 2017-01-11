@@ -8,7 +8,7 @@
  * @package formz
  * @subpackage lexicon
  */
-$_lang['formz'] = 'Formz-Generator';
+$_lang['formz.menu'] = 'Formz-Generator';
 $_lang['formz.menu_desc'] = 'Verwalten Sie Formulare zur Verwendung in Ihrer Website.';
 $_lang['formz.intro_msg'] = 'Verwalten Sie Ihre Formulare.';
 $_lang['formz.form'] = 'Formulare';
@@ -51,6 +51,7 @@ $_lang['formz.form.action_button_desc'] = 'Der Text, mit dem der Absende-Button 
 
 // Fields
 $_lang['formz.field.name'] = 'Beschriftung (Label)';
+$_lang['formz.field.help_text'] = 'Zusatztext';
 $_lang['formz.field.type'] = 'Typ';
 $_lang['formz.field.values'] = 'Werte';
 $_lang['formz.field.default'] = 'Standardwert';

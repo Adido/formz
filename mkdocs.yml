@@ -1,0 +1,17 @@
+site_name: Formz
+docs_dir: core/components/formz/docs
+site_dir: _build/site
+
+repo_url: https://github.com/Jako/formz
+
+pages:
+- Home: 'index.md'
+- Installation: 'installation.md'
+- Getting Started: 'getting-started.md'
+- Usage: 'usage.md'
+
+theme: flatly
+
+markdown_extensions:
+    - footnotes
+    - tables
